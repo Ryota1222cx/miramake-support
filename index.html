@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サポート : ミラメイク(MiraMake)</title>
+<meta name="description" content="iOSアプリ「ミラメイク(MiraMake)」のサポートページ。お問い合わせ先とよくある質問を掲載しています。">
+<style>
+/* 公開ページは端末のダークモード設定に関わらず白背景で固定する */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --panel: #faf4f7;
+  --ink: #241f26;
+  --muted: #6f6572;
+  --accent: #c94f82;
+  --line: #ecdde5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.9;
+  font-size: 16px;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 64px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 32px; }
+.app-name { font-size: 13px; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; margin-bottom: 8px; }
+h1 { font-size: 26px; font-weight: 700; line-height: 1.4; }
+.lead { margin-top: 16px; color: var(--muted); font-size: 15px; }
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 40px 0 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+p { margin-bottom: 12px; }
+ul, ol { margin: 0 0 12px 1.4em; }
+li { margin-bottom: 6px; }
+.contact-box {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+.contact-box .mail { font-size: 18px; font-weight: 700; }
+.contact-box .hint { color: var(--muted); font-size: 14px; margin-top: 8px; margin-bottom: 0; }
+.faq { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.faq:last-of-type { border-bottom: none; }
+.faq .q { font-weight: 700; margin-bottom: 6px; }
+.faq .q::before { content: "Q. "; color: var(--accent); }
+.faq .a { margin-bottom: 0; }
+a { color: var(--accent); }
+footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="app-name">ミラメイク(MiraMake)</div>
+  <h1>サポート</h1>
+  <p class="lead">ミラメイクは、「なりたい顔」と今の顔を比べて、近づき方を数字で見せるメイク練習アプリです。顔の分析はすべてiPhoneの中で完結し、アカウント登録は不要です。</p>
+</header>
+
+<h2>お問い合わせ</h2>
+<p>アプリの不具合、ご意見、データの削除依頼は、下記のメールアドレスまでご連絡ください。2〜3営業日以内に返信します。</p>
+<div class="contact-box">
+  <div class="mail"><a href="mailto:m.ryota1222@gmail.com">m.ryota1222@gmail.com</a></div>
+  <p class="hint">不具合のご連絡には、お使いの機種(例: iPhone 15)、iOSのバージョン、症状が起きる操作手順を添えていただくと、調査がスムーズです。</p>
+</div>
+
+<h2>よくある質問</h2>
+
+<div class="faq">
+  <p class="q">撮影した顔写真はどこに保存されますか?</p>
+  <p class="a">お使いのiPhoneの中だけに保存され、分析も端末内で完結します。サーバーへ送信されるのは、「プロ添削の事前予約」をご自身で行ったときのみです。詳しくは<a href="./privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+</div>
+
+<div class="faq">
+  <p class="q">サブスクリプション(ミラメイク Plus)を解約したいです。</p>
+  <p class="a">iPhoneの「設定」App > 一番上のお名前(Apple Account) > 「サブスクリプション」 > 「ミラメイク Plus」 > 「サブスクリプションをキャンセル」の順に操作してください。期間終了の24時間前までにキャンセルすると、次回の請求は発生しません。</p>
+</div>
+
+<div class="faq">
+  <p class="q">機種変更しました。購入したPlusを引き継げますか?</p>
+  <p class="a">同じApple Accountでサインインした新しいiPhoneで、アプリ内の「設定」タブ > 「購入を復元」をタップしてください。追加料金はかかりません。</p>
+</div>
+
+<div class="faq">
+  <p class="q">プロ添削の予約で送った写真を削除してほしいです。</p>
+  <p class="a">上記のお問い合わせメールアドレスへ削除をご依頼ください。アプリの設定画面に表示される予約状態を添えていただくと照合がスムーズです。ご依頼から14日以内に削除し、完了をご返信します。</p>
+</div>
+
+<div class="faq">
+  <p class="q">プロ添削はいつ始まりますか?</p>
+  <p class="a">現在は無料の事前予約を受け付けている段階です。サービス開始時期が決まりましたら、アプリ内でお知らせします。</p>
+</div>
+
+<h2>プライバシーポリシー</h2>
+<p><a href="./privacy.html">プライバシーポリシーはこちら</a></p>
+
+<footer>
+  <p>運営者: Ryota Masuda</p>
+</footer>
+
+</div>
+</body>
+</html>
