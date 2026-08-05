@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy : MiraMake</title>
+<meta name="description" content="Privacy Policy for the iOS app MiraMake. All face analysis runs on the device. Face data is sent to our server only when the user taps the professional review reservation button.">
+<style>
+/* 公開ページは端末のダークモード設定に関わらず白背景で固定する */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --panel: #faf4f7;
+  --ink: #241f26;
+  --muted: #6f6572;
+  --accent: #c94f82;
+  --line: #ecdde5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.9;
+  font-size: 16px;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 64px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 32px; }
+.app-name { font-size: 13px; color: var(--accent); font-weight: 600; letter-spacing: 0.08em; margin-bottom: 8px; }
+h1 { font-size: 26px; font-weight: 700; line-height: 1.4; }
+.lead { margin-top: 16px; color: var(--muted); font-size: 14px; }
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 40px 0 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+p { margin-bottom: 12px; }
+ul { margin: 0 0 12px 1.4em; }
+li { margin-bottom: 6px; }
+.note {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 15px;
+}
+.contact { font-weight: 600; }
+a { color: var(--accent); }
+footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="app-name">MiraMake</div>
+  <h1>Privacy Policy</h1>
+  <p class="lead">Ryota Masuda ("we", "us", the operator) sets out below how we handle your information in the iOS app MiraMake (Japanese name: ミラメイク, the "App").</p>
+  <p class="lead">This is the English version. <a href="./privacy.html">日本語版はこちら</a>. In case of any discrepancy, the Japanese version prevails.</p>
+</header>
+
+<h2>1. Information we collect</h2>
+<p>All face analysis in the App runs entirely on your iPhone. Photos you take for analysis are never transmitted anywhere automatically.</p>
+<p>The only data we receive on our server is the data you send when you tap the "Reserve a professional makeup review" button, namely:</p>
+<ul>
+  <li>Three face photos taken for the reservation (front, left three-quarter, right three-quarter)</li>
+  <li>The photo you registered as your goal face (only if you registered one)</li>
+  <li>A free-text note about what you want advice on (only if you entered one)</li>
+  <li>A randomly generated device identifier, your language setting, whether you are a Plus subscriber, and the submission timestamp</li>
+</ul>
+<p>We do not collect your name, email address, phone number, or any other contact details. The App has no account registration.</p>
+
+<h2>2. Face data</h2>
+<p>This section sets out, in one place, the collection, use, disclosure, sharing, storage, retention, and deletion of face data.</p>
+
+<h3>2.1 Face data we collect</h3>
+<ul>
+  <li>Face photos that you take with the standard front-facing camera of your iPhone, or that you choose from your photo library.</li>
+  <li>The photo you register as your "goal face".</li>
+  <li>Numerical values computed from those photos on your device: a face feature vector (512 dimensions), the coordinates of 106 facial landmark points, 19 geometric ratios derived from those points, and an 8-category face shape label.</li>
+</ul>
+<p>The App does not use the TrueDepth camera, ARKit face tracking, depth data, or Face ID. We never use face data to identify, verify, or authenticate a person, and we never match your face against any other person's face (no facial recognition).</p>
+
+<h3>2.2 How we use face data</h3>
+<ul>
+  <li>To show a similarity score between your face and the goal face that you yourself registered.</li>
+  <li>To show a map of the differences by facial region, so you can practise your makeup.</li>
+</ul>
+<p>All of this computation is performed on your iPhone. Neither your face photos nor the values listed in Section 2.1 are transmitted anywhere for analysis.</p>
+
+<h3>2.3 Disclosure and sharing with third parties</h3>
+<ul>
+  <li>We do not sell, disclose, or share face data with any third party.</li>
+  <li>We do not use face data for advertising, marketing, profiling, or for training any machine learning model of ours or of any third party.</li>
+  <li>After the professional review service launches, the photos and note you submit will be viewed only by our own advisor assigned to your request, who is bound by a confidentiality agreement.</li>
+</ul>
+
+<h3>2.4 Where face data is stored</h3>
+<ul>
+  <li>On your device: face photos and analysis results are stored in the App's own container, encrypted so that they cannot be decrypted while the device is locked, and excluded from iCloud backup. Deleting the App deletes this face data.</li>
+  <li>On our server: only if you tap the "Reserve a professional makeup review" button. In that case the three photos you took, your registered goal face photo, and your note are sent over HTTPS and stored on our server in a data centre in Tokyo, Japan. Unless you perform that action, no face data ever leaves your device.</li>
+</ul>
+
+<h3>2.5 Retention and deletion of face data</h3>
+<ul>
+  <li>On your device: retained until you delete it or delete the App. Diary records are deleted automatically after 7 days for free users (Plus subscribers keep them until they delete them). A professional review reply is deleted automatically 7 days after you receive it.</li>
+  <li>On our server: face photos submitted with a reservation are deleted 12 months after submission.</li>
+  <li>If you ask us to delete your data, we delete the face data on our server within 14 days of your request, without waiting for the period above (see Section 6 for the contact point).</li>
+</ul>
+
+<h2>3. Purposes of use (all data, including data other than face data)</h2>
+<ul>
+  <li>Preparing and providing the professional makeup review service (managing reservations, notifying you when the service starts)</li>
+  <li>After the service starts, presenting your photos and note to an advisor at your request</li>
+</ul>
+<p>We do not use this data for advertising or sell it to third parties. We do not perform behavioural tracking.</p>
+
+<h2>4. Storage location and retention period</h2>
+<ul>
+  <li>Storage location: a server in Japan. We use Supabase as our cloud platform; the operating company is Supabase, Inc. (United States) and the data is stored in a data centre in Japan.</li>
+  <li>Retention: for face data, see Section 2.5. Reservation data other than face data (the note, the random device identifier, the language setting, and the submission timestamp) is deleted on the same schedule.</li>
+</ul>
+
+<h2>5. Disclosure to third parties and use of processors</h2>
+<ul>
+  <li>We do not sell or disclose the information we collect to third parties</li>
+  <li>Our use of the cloud platform (Section 4) is a processing arrangement. Supabase, Inc. stores the data solely on our instructions and does not use it for its own purposes.</li>
+  <li>After the professional review service launches, your request (photos and note) is viewed by our advisor, who is bound by a confidentiality agreement.</li>
+</ul>
+
+<h2>6. Deletion requests and contact</h2>
+<p>If you would like us to delete data stored on our server, please contact us at the address below. Including the reservation status shown in the App's settings screen helps us locate your record. We delete the data within 14 days of your request and reply to confirm.</p>
+<p>You can also erase face data on your device yourself at any time, by cancelling your reservation in the App or by deleting the App.</p>
+<p class="contact">Contact: <a href="mailto:m.ryota1222@gmail.com">m.ryota1222@gmail.com</a></p>
+
+<h2>7. Payment information</h2>
+<p>Payments for MiraMake Plus (subscription) and in-app purchases are processed by Apple. We do not receive your credit card details.</p>
+
+<h2>8. Camera and notifications</h2>
+<ul>
+  <li>Camera: used to take and analyse your face photo. Photos are stored on your device (they are sent to our server only in the reservation case described in Section 2.4)</li>
+  <li>Notifications: makeup reminders are local notifications generated on your device. They do not pass through any external server.</li>
+</ul>
+
+<h2>9. Security</h2>
+<p>Communication with our server is encrypted using HTTPS. Photos on our server are held in a private storage area whose access policy does not permit the App to read them back. Face photos on your device are stored with a protection class that prevents decryption while the device is locked.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If we revise this policy, we will publish the revision on this page. We will also notify you in the App of any significant change.</p>
+
+<footer>
+  <p>Effective date: 29 July 2026<br>Last updated: 6 August 2026<br>Operator: Ryota Masuda</p>
+  <p><a href="./index.html">Back to the support page</a></p>
+</footer>
+
+</div>
+</body>
+</html>
