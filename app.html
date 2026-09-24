@@ -146,20 +146,56 @@ footer p { margin-bottom: 8px; }
   <p><a href="./index.html">サポート・よくある質問</a> / <a href="./terms.html">利用規約</a> / <a href="./privacy.html">プライバシーポリシー</a></p>
   <p>お問い合わせ: <a href="mailto:m.ryota1222@gmail.com">m.ryota1222@gmail.com</a></p>
   <p>運営者: Ryota Masuda</p>
+  <p>このページが開かれた回数と、App Storeへ進んだ回数だけを数えています。個人を特定する情報は集めていません。</p>
 </footer>
 
 </div>
 
 <script>
-// 出し先ごとの名前を ?s= で受け取り、App Store のリンクの ct= を差し替える。
-// 出し先を増やすたびにページを作らずに済ませるため。
 (function () {
+  // 出し先ごとの名前を ?s= で受け取り、App Store のリンクの ct= を差し替える。
+  // 出し先を増やすたびにページを作らずに済ませるため。
   var allowed = ["ig_ad", "ig_bio", "ig_story", "yt_desc", "tt_ad", "x_bio"];
-  var s = new URLSearchParams(location.search).get("s");
-  if (!s || allowed.indexOf(s) < 0) return;
-  ["dl", "dl2"].forEach(function (id) {
-    var a = document.getElementById(id);
-    if (a) a.href = a.href.replace("ct=ig_ad", "ct=" + s);
+  var q = new URLSearchParams(location.search).get("s");
+  var s = (q && allowed.indexOf(q) >= 0) ? q : "";
+  var links = ["dl", "dl2"].map(function (id) { return document.getElementById(id); });
+  if (s) {
+    links.forEach(function (a) {
+      if (a) a.href = a.href.replace("ct=ig_ad", "ct=" + s);
+    });
+  }
+
+  // このページが開かれた回数と、App Store へ出ていった回数を数える。
+  // 押されるとページごと App Store へ移るので、通常の fetch では送り終わる前に
+  // 打ち切られる。sendBeacon はページが消えても送り切る。独自ヘッダを付けられない
+  // ので、鍵(公開前提の publishable key)は URL に載せる。
+  // 中身は JSON ではなくフォーム形式で送る。JSON にすると CORS の事前確認が要る形に
+  // なり、事前確認のできない sendBeacon はその場で送るのをやめる(実測で1件も届かない)
+  var endpoint = "https://fccukluxrkbnrvmmrntk.supabase.co/rest/v1/site_events" +
+    "?apikey=sb_publishable_9fyqIqRutF8erQk8Lr-5rQ_AJf4kSeB";
+  var ua = navigator.userAgent || "";
+  function count(kind) {
+    if (!navigator.sendBeacon) return;
+    var body = new URLSearchParams({
+      kind: kind,
+      page: "app",
+      source: s,
+      referrer: (document.referrer || "").slice(0, 200),
+      lang: (navigator.language || "").slice(0, 20),
+      platform: /iPhone|iPad|iPod/.test(ua) ? "ios" : /Android/.test(ua) ? "android" : "other"
+    }).toString();
+    try {
+      navigator.sendBeacon(endpoint, new Blob([body], {
+        type: "application/x-www-form-urlencoded"
+      }));
+    } catch (e) {
+      // 数えられなくても、ページの動きは止めない
+    }
+  }
+
+  count("view");
+  links.forEach(function (a) {
+    if (a) a.addEventListener("click", function () { count("tap"); });
   });
 })();
 </script>
