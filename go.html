@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Storeへ移動しています : ミラメイク(MiraMake)</title>
+<meta name="robots" content="noindex">
+<style>
+body {
+  margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: #ffffff; color: #6f6572;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 15px; line-height: 1.9; text-align: center; padding: 24px;
+}
+a { color: #c94f82; }
+</style>
+</head>
+<body>
+<p>App Storeへ移動しています<br>
+<a id="dl" href="https://apps.apple.com/jp/app/id6795734759?pt=129223245&amp;ct=ig_direct&amp;mt=8">開かないときはこちら</a></p>
+<script>
+(function () {
+  // 広告の行き先をApp Storeに直接することはMetaが許さない(アプリ宣伝目的でないと
+  // 弾かれる)。そこでこのページだけを挟み、読み込んだその場でApp Storeへ送る。
+  // 説明も料金も見せないので、app.html を挟む場合との差が「間の1枚」だけになる。
+  var allowed = ["ig_direct", "ig_ad", "ig_bio", "ig_story", "yt_desc", "tt_ad", "x_bio"];
+  var q = new URLSearchParams(location.search).get("s");
+  var s = (q && allowed.indexOf(q) >= 0) ? q : "ig_direct";
+  var a = document.getElementById("dl");
+  a.href = a.href.replace("ct=ig_direct", "ct=" + s);
+
+  // 送り終わる前にページが消えるので sendBeacon を使う。中身をJSONにすると
+  // CORSの事前確認が要る形になり、事前確認のできない sendBeacon は送るのをやめる
+  var ua = navigator.userAgent || "";
+  if (navigator.sendBeacon) {
+    var body = new URLSearchParams({
+      kind: "tap",
+      page: "go",
+      source: s,
+      referrer: (document.referrer || "").slice(0, 200),
+      lang: (navigator.language || "").slice(0, 20),
+      platform: /iPhone|iPad|iPod/.test(ua) ? "ios" : /Android/.test(ua) ? "android" : "other"
+    }).toString();
+    try {
+      navigator.sendBeacon(
+        "https://fccukluxrkbnrvmmrntk.supabase.co/rest/v1/site_events" +
+        "?apikey=sb_publishable_9fyqIqRutF8erQk8Lr-5rQ_AJf4kSeB",
+        new Blob([body], { type: "application/x-www-form-urlencoded" })
+      );
+    } catch (e) {
+      // 数えられなくても、App Storeへは送る
+    }
+  }
+  location.replace(a.href);
+})();
+</script>
+</body>
+</html>
