@@ -1,0 +1,125 @@
+1:"$Sreact.fragment"
+2:"/miramake-support/_next/static/chunks/296nl07afc74r.js"
+3:I[40618,["$2"],"StoreButtons"]
+4:I[39756,["$2"],"default"]
+5:I[37457,["$2"],"default"]
+:HL["/miramake-support/_next/static/chunks/3ha0k09h-0yt-.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap","style"]
+:HL["/miramake-support/img/icon.png","image"]
+7:X
+b:X
+b:C
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":"$Ld","p":"$@e","v":null,"s":"$7"}}]]
+8:[["children",{"s":"privacy","h":96,"d":{"r":"$L9","p":"$@a","v":"$b","s":"$7"},"c":"$Qc"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/miramake-support/_next/static/chunks/3ha0k09h-0yt-.css","precedence":"next"}],["$","script","script-0",{"src":"/miramake-support/_next/static/chunks/296nl07afc74r.js","async":true}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":""}],["$","link",null,{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap"}]]}],["$","body",null,{"className":"antialiased","children":[["$","header",null,{"className":"fixed inset-x-3 top-3 z-50 mx-auto max-w-3xl rounded-full border border-white/70 bg-white/60 shadow-[0_10px_30px_-18px_rgba(29,26,26,0.4)] backdrop-blur-xl","children":["$","div",null,{"className":"flex h-14 items-center justify-between pl-3 pr-2","children":[["$","a",null,{"href":"/miramake-support/","className":"flex items-center gap-2.5 text-[16px] font-black","children":[["$","img",null,{"src":"/miramake-support/img/icon.png","alt":"","width":34,"height":34,"className":"rounded-full"}],"ミラメイク"]}],["$","nav",null,{"className":"flex items-center gap-6","children":[[["$","a","/#features",{"href":"/miramake-support/#features","className":"hidden text-[13.5px] font-bold transition-colors hover:text-rose-deep md:block","children":"特長"}],["$","a","/#how",{"href":"/miramake-support/#how","className":"hidden text-[13.5px] font-bold transition-colors hover:text-rose-deep md:block","children":"使い方"}],["$","a","/#faq",{"href":"/miramake-support/#faq","className":"hidden text-[13.5px] font-bold transition-colors hover:text-rose-deep md:block","children":"よくある質問"}]],["$","$L3",null,{"compact":true}]]}]]}]}],["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","footer",null,{"className":"overflow-hidden","children":[["$","div",null,{"className":"mx-auto max-w-7xl px-5 pt-14 text-sm md:px-8","children":[["$","ul",null,{"className":"flex flex-wrap gap-x-7 gap-y-2 font-bold","children":[["$","li",null,{"children":["$","a",null,{"href":"/miramake-support/","className":"hover:text-rose-deep","children":["ミラメイク","について"]}]}],[["$","li","/support",{"children":["$","a",null,{"href":"/miramake-support/support.html","className":"hover:text-rose-deep","children":"サポート"}]}],["$","li","/privacy",{"children":["$","a",null,{"href":"/miramake-support/privacy.html","className":"hover:text-rose-deep","children":"プライバシーポリシー"}]}],["$","li","/terms",{"children":["$","a",null,{"href":"/miramake-support/terms.html","className":"hover:text-rose-deep","children":"利用規約"}]}]]]}],["$","p",null,{"className":"mt-6 max-w-2xl text-[13px] leading-relaxed text-soft","children":"このサイトでは、ページが開かれた回数とストアへ進んだ回数だけを数えています。個人を特定する情報は集めていません。"}],["$","p",null,{"className":"mt-2 text-[13px] text-soft","children":["© 2026 ","Ryota Masuda"]}]]}],["$","p",null,{"aria-hidden":true,"className":"heat-text -mb-[0.24em] mt-6 select-none whitespace-nowrap text-center font-serif text-[25vw] leading-none","children":"MiraMake"}]]}]]}]]}]]}],"p":"$@6","v":null,"s":"$7"},"c":"$Q8"},"h":{"r":"$Lf","p":"$@10","v":null,"s":"$7"}},"a":"$@11","u":"$@12","b":"EJXQPVdLM7YzrvWYWcr75"}
+16:"ViewportBoundary"
+17:I[97367,["$2"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$2"],"$18"]
+1a:"$Sreact.suspense"
+1b:I[27201,["$2"],"IconMark"]
+9:["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}]
+13:T1e7a,<p class="notice"><strong>顔写真は端末の外に出ません</strong><br>顔の分析はすべてお使いのiPhoneの中で行います。外へ出るのは、お客様が「AIに聞く」を押したときに送る11項目の差の数値と、顔立ちを表す3つのことばだけで、顔写真は送りません。以前に受け付けていた「プロ添削の事前予約」は取り下げました。写真をサーバーへ送る経路は、いまのアプリにはありません。</p>
+
+<h2>1. 取得する情報</h2>
+<p>本アプリの顔分析は、お使いのiPhoneの中で完結します。分析のために撮影した写真が外部に送信されることはありません。</p>
+<p>運営者がサーバーで受け取るのは、お客様が「AIに聞く」を押したときに限られ、内容は次のとおりです。</p>
+<ul>
+  <li>診断の合計点(0〜100)</li>
+  <li>顔の11項目それぞれについて、項目の名前、いまと目標の特徴の呼び名、差の数値</li>
+  <li>顔立ちを表す3つのことば(求心と遠心・子供顔と大人顔・直線的と曲線的)</li>
+  <li>アドバイスを書く言語(日本語・英語・繁体字中国語のいずれか)</li>
+</ul>
+<p>顔写真は送りません。氏名・メールアドレス・電話番号・端末を識別するIDも送らないため、届いた数値が特定の個人に結び付くことはありません。アカウント登録もありません。</p>
+
+<h2>2. 顔データの取り扱い</h2>
+<p>本条は、顔データについて取得・利用・開示・共有・保存期間をまとめて定めるものです。</p>
+
+<h3>2.1 取得する顔データ</h3>
+<ul>
+  <li>お客様がiPhoneの標準の前面カメラで撮影した、またはフォトライブラリから選んだ顔写真</li>
+  <li>お客様が「なりたい顔」として登録した写真</li>
+  <li>これらの写真から端末内で計算する数値: 顔の特徴量(512次元のベクトル)、顔の106点の位置座標、そこから求めた19個の比率</li>
+</ul>
+<p>本アプリは TrueDepth カメラ、ARKit の顔トラッキング、深度データ、Face ID を一切使用しません。顔データを本人確認・個人の識別・認証に使うことはなく、他人の顔と照合する顔認識も行いません。</p>
+
+<h3>2.2 利用目的</h3>
+<ul>
+  <li>お客様自身が登録した「なりたい顔」との近さを点数で示すこと</li>
+  <li>顔の部位ごとの違いをマップで示し、メイクの練習に役立てていただくこと</li>
+</ul>
+<p>これらの計算はすべてお使いのiPhoneの中で行います。分析のために顔写真や上記の数値を外部へ送信することはありません。</p>
+
+<h3>2.3 第三者への提供・共有</h3>
+<ul>
+  <li>顔データを第三者へ販売・提供・共有することはありません</li>
+  <li>広告配信、マーケティング、プロファイリング、および運営者または第三者の機械学習モデルの学習に顔データを使用することはありません</li>
+  <li>「AIに聞く」で送る数値は、文章を書かせるために Google LLC の Gemini API へ渡します。顔写真は渡しません。Google は不正利用の監視のため、送信内容を55日間保持します(<a href="https://ai.google.dev/gemini-api/docs/logs-policy">Gemini API のログ方針</a>)</li>
+</ul>
+
+<h3>2.4 保存場所</h3>
+<ul>
+  <li>端末内: 顔写真と分析結果は本アプリ専用の保存領域に暗号化して保存し(端末のロック中は復号できない設定)、iCloudバックアップの対象から除外しています。本アプリを削除すると顔データも消えます</li>
+  <li>サーバー: 顔写真を保存する経路はありません。「AIに聞く」で送る数値は、アドバイスの文章を作るために処理するだけで、運営者のサーバーには保存しません</li>
+</ul>
+
+<h3>2.5 保存期間と削除</h3>
+<ul>
+  <li>端末内: お客様が削除するか本アプリを削除するまで保存します。ダイアリーの記録は無料会員では7日で自動削除します(Plus会員は削除されるまで保持)。Plusをやめたあとは30日の猶予を置き、その間は記録も写真も消しません。読んだAIメイクアドバイスの本文も、その記録と同じ期間で消えます</li>
+  <li>サーバー: 顔データを保存しません</li>
+  <li>端末内の顔データは、アプリの設定画面からお客様ご自身でいつでも消去できます(第6条)</li>
+</ul>
+
+<h2>3. 利用目的(顔データ以外を含む全体)</h2>
+<ul>
+  <li>お客様が「AIに聞く」を押したときに、メイクのアドバイスを書くこと</li>
+  <li>そのアドバイスに添える短い動画を探すこと(YouTube Data API へ渡すのは検索語だけです)</li>
+  <li>1日あたりの生成回数を数え、運営の費用が上限を超えないようにすること</li>
+</ul>
+<p>広告配信や第三者へのデータ販売には使用しません。行動トラッキングも行いません。</p>
+
+<h2>4. 保存先と保存期間</h2>
+<ul>
+  <li>保存先: 顔データは保存しません。アドバイスの通信は Supabase の Edge Function(運営会社 Supabase, Inc.(米国))を経由します</li>
+  <li>保存期間: 端末内の保存は第2.5条のとおりです。サーバーに残るのは、1日あたりの生成回数の合計と、動画の検索結果の控えだけで、どちらも個人には結び付きません</li>
+</ul>
+
+<h2>5. 第三者提供・委託</h2>
+<ul>
+  <li>取得した情報を第三者に販売・提供することはありません</li>
+  <li>アドバイスの生成は Google LLC(Gemini API)へ、動画の検索は Google LLC(YouTube Data API)へ委託します。どちらにも顔写真は渡しません</li>
+  <li>通信の中継とクラウド基盤の利用は Supabase, Inc. への委託にあたります。同社は運営者の指示に基づく処理のみを行い、同社の目的でデータを利用することはありません</li>
+</ul>
+
+<h2>6. 削除のご依頼・お問い合わせ</h2>
+<p>端末内の顔データと診断の記録は、本アプリの設定画面から、またはアプリを削除することで、お客様ご自身がいつでも消去できます。運営者のサーバーにお客様の顔データは残らないため、削除のご依頼は不要です。</p>
+<p>本ポリシーの内容についてのご質問は、下記までご連絡ください。</p>
+<p class="contact">連絡先: <a href="mailto:m.ryota1222@gmail.com">m.ryota1222@gmail.com</a></p>
+
+<h2>7. 課金情報</h2>
+<p>ミラメイク Plus(サブスクリプション)およびApp内課金の決済はAppleが行い、運営者はクレジットカード情報等を取得しません。</p>
+
+<h2>8. カメラ・通知の利用</h2>
+<ul>
+  <li>カメラ: 顔の撮影と分析のために使用します。撮影した写真は端末内だけに保存し、サーバーへ送ることはありません(第2.4条)</li>
+  <li>通知: メイクリマインドのための端末内通知(ローカル通知)です。外部サーバーを経由しません</li>
+</ul>
+
+<h2>9. 安全管理</h2>
+<p>サーバーへの通信は暗号化(HTTPS)しています。顔写真はサーバーへ送らないため、サーバー上に写真は存在しません。端末内の顔写真は端末のロック中は復号できない保護区分で保存します。</p>
+
+<h2>10. 改定</h2>
+<p>本ポリシーを改定するときは、本ページで公表します。重要な変更はアプリ内でもお知らせします。</p>d:["$","$1","c",{"children":[["$","main",null,{"className":"mx-auto max-w-3xl px-5 pb-20 pt-28","children":[["$","h1",null,{"className":"font-display text-[clamp(28px,6vw,40px)] font-extrabold leading-snug","children":"プライバシーポリシー"}],["$","p",null,{"className":"mt-5 text-soft","dangerouslySetInnerHTML":{"__html":"Ryota Masuda(以下「運営者」)は、iOSアプリ「ミラメイク」(英語名 MiraMake。以下「本アプリ」)におけるお客様の情報の取り扱いを、次のとおり定めます。"}}],["$","p",null,{"className":"legal mt-2 text-sm","dangerouslySetInnerHTML":{"__html":"<a href=\"./privacy_en.html\">English version of this Privacy Policy</a> / <a href=\"./privacy_zh-hant.html\">本隱私權政策的繁體中文版</a>"}}],["$","div",null,{"className":"legal mt-10","dangerouslySetInnerHTML":{"__html":"$13"}}],"$L14"]}],null,"$L15"]}]
+f:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$1a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"プライバシーポリシー : ミラメイク(MiraMake)"}],["$","meta","1",{"name":"description","content":"ミラメイクが取得する情報と、その扱いを定めたページです。顔写真は端末の外へ出ません。"}],["$","meta","2",{"name":"application-name","content":"ミラメイク"}],["$","meta","3",{"property":"og:title","content":"ミラメイク : なりたい顔との違いが色で出る顔診断アプリ"}],["$","meta","4",{"property":"og:description","content":"なりたい顔の写真を1枚えらんで今日の顔を撮ると、近さが0〜100%で出て、違うところが顔の写真の上に色で出ます。撮った写真は端末の外へ出ません。iPhone と Android に対応。"}],["$","meta","5",{"property":"og:url","content":"https://ryota1222cx.github.io/miramake-support"}],["$","meta","6",{"property":"og:site_name","content":"ミラメイク(MiraMake)"}],["$","meta","7",{"property":"og:locale","content":"ja_JP"}],["$","meta","8",{"property":"og:image","content":"https://ryota1222cx.github.io/miramake-support/img/og.png"}],["$","meta","9",{"property":"og:image:width","content":"1200"}],["$","meta","10",{"property":"og:image:height","content":"630"}],["$","meta","11",{"property":"og:image:alt","content":"ミラメイク : なりたい顔との違いが色で出る顔診断アプリ"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"ミラメイク : なりたい顔との違いが色で出る顔診断アプリ"}],["$","meta","15",{"name":"twitter:description","content":"なりたい顔の写真を1枚えらんで今日の顔を撮ると、近さが0〜100%で出て、違うところが顔の写真の上に色で出ます。撮った写真は端末の外へ出ません。iPhone と Android に対応。"}],["$","meta","16",{"name":"twitter:image","content":"https://ryota1222cx.github.io/miramake-support/img/og.png"}],["$","link","17",{"rel":"icon","href":"/miramake-support/img/icon.png"}],["$","link","18",{"rel":"apple-touch-icon","href":"/miramake-support/img/icon.png"}],["$","$L1b","19",{}]]}]}],null]}],null]}]
+1c:I[97367,["$2"],"OutletBoundary"]
+7:300
+14:["$","p",null,{"className":"mt-12 border-t border-line pt-6 text-sm text-soft","dangerouslySetInnerHTML":{"__html":"制定日: 2026年7月29日<br>最終改定日: 2026年8月30日<br>運営者: Ryota Masuda"}}]
+15:["$","$L1c",null,{"children":["$","$1a",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]
+12:true
+7:C
+1d:null
+11:0
+a:"$undefined"
+6:"$undefined"
+10:"$undefined"
+e:"$undefined"
