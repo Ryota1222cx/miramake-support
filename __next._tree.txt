@@ -2,4 +2,4 @@
 :HL["https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap","style"]
 :HL["/miramake-support/img/icon.png","image"]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"EJXQPVdLM7YzrvWYWcr75","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"nbTBzm2AWxoIJUskzMRXV","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
