@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ミラメイク : なりたい顔との違いが色で出る顔診断アプリ</title>
+<meta name="description" content="なりたい顔の写真を1枚えらんで今日の顔を撮ると、近さが0〜100%で出て、違うところが顔の上に色で出ます。写真は端末の外へ出ません。iPhone と Android に対応。">
+<meta property="og:title" content="ミラメイク : なりたい顔との違いが色で出る">
+<meta property="og:description" content="なりたい顔の写真を1枚えらんで、今日の顔を撮るだけ。写真は端末の外へ出ません。">
+<meta property="og:type" content="website">
+<link rel="icon" href="./img/icon.png">
+<link rel="apple-touch-icon" href="./img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 公開ページは端末のダークモード設定に関わらず明るい背景で固定する */
+:root {
+  color-scheme: light;
+  --paper: #fbf7f5;
+  --white: #ffffff;
+  --ink: #3a2630;
+  --soft: #7a6470;
+  --far: #ee7f8e;      /* アプリのマップで「なりたい顔と大きく違う」を示す色 */
+  --far-deep: #c9485e;
+  --near: #17b3a3;     /* 同じく「もう近い」を示す色 */
+  --near-deep: #0b7a70;
+  --line: #ecdde0;
+  --blush: #fcecee;
+  --mint: #e3f5f2;
+  --display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.9;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--far-deep); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--near-deep); outline-offset: 3px; }
+
+.page { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+
+/* 上の帯 */
+.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; text-decoration: none; color: var(--ink); }
+.brand img { width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--line); }
+.top nav a { font-size: 14px; color: var(--soft); text-decoration: none; margin-left: 18px; }
+.top nav a:hover { color: var(--far-deep); }
+
+/* 冒頭 */
+.hero { display: grid; gap: 34px; padding: 22px 0 56px; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(25px, 7.1vw, 44px);
+  line-height: 1.42;
+  letter-spacing: .01em;
+}
+.hero h1 span { display: block; }
+.hero .sub { margin-top: 18px; font-size: 16.5px; max-width: 30em; }
+.dot { display: inline-block; width: .72em; height: .72em; border-radius: 50%; margin: 0 .22em 0 .1em; vertical-align: baseline; }
+.dot.far { background: var(--far); }
+.dot.near { background: var(--near); }
+
+.stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.store {
+  display: inline-flex; flex-direction: column; justify-content: center;
+  min-width: 212px; padding: 12px 22px 13px; border-radius: 14px;
+  background: var(--ink); color: #fff; text-decoration: none; line-height: 1.45;
+}
+.store small { font-size: 12px; opacity: .8; }
+.store b { font-size: 17px; font-weight: 700; }
+.store:hover { background: #51343f; }
+.stores-note { margin-top: 10px; font-size: 13.5px; color: var(--soft); }
+
+/* 冒頭の実演: アプリの画面3枚を順に見せる */
+.demo { justify-self: center; width: min(292px, 78vw); }
+.phone {
+  position: relative; aspect-ratio: 1320 / 2868; overflow: hidden;
+  border-radius: 38px; border: 7px solid var(--ink); background: var(--white);
+  box-shadow: 0 26px 50px -22px rgba(92, 38, 56, .5);
+}
+.phone img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; }
+.phone img.on { opacity: 1; }
+.beats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 14px; }
+.beats button {
+  font: inherit; font-size: 13px; font-weight: 700; line-height: 1.4; color: var(--soft);
+  background: transparent; border: 1px solid var(--line); border-radius: 10px;
+  padding: 8px 4px; cursor: pointer;
+}
+.beats button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.beats button i { display: block; font-style: normal; font-size: 11px; font-weight: 500; opacity: .75; }
+
+/* 見出しと本文の共通 */
+.block { padding: 52px 0; border-top: 1px solid var(--line); }
+.block h2 {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(24px, 6vw, 32px); line-height: 1.5; margin-bottom: 18px;
+}
+.block p { max-width: 36em; margin-bottom: 12px; }
+.small { font-size: 13.5px; color: var(--soft); }
+
+/* 使い方: 順番のある4つの手順 */
+.steps { list-style: none; display: grid; gap: 14px; counter-reset: step; }
+.steps li {
+  counter-increment: step; position: relative;
+  background: var(--white); border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 18px 18px 62px;
+}
+.steps li::before {
+  content: counter(step); position: absolute; left: 18px; top: 16px;
+  font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; color: var(--far-deep);
+}
+.steps b { display: block; font-size: 17px; line-height: 1.6; }
+.steps span { font-size: 14.5px; color: var(--soft); }
+
+/* 色の読み方 */
+.reading { display: grid; gap: 26px; align-items: center; }
+.reading figure { justify-self: center; width: min(250px, 70vw); }
+.reading figure img { border-radius: 26px; border: 1px solid var(--line); }
+.legend { list-style: none; display: grid; gap: 12px; margin: 6px 0 16px; }
+.legend li { border-radius: 14px; padding: 14px 16px; }
+.legend .far { background: var(--blush); }
+.legend .near { background: var(--mint); }
+.legend b { display: block; font-size: 16.5px; }
+.legend .far b { color: var(--far-deep); }
+.legend .near b { color: var(--near-deep); }
+.legend span { font-size: 14.5px; }
+
+/* 写真の扱い */
+.private { background: var(--ink); color: #fff; border-radius: 22px; padding: 30px 24px; }
+.private h2 { color: #fff; }
+.private p { color: #f3e6ea; }
+.private ul { list-style: none; display: grid; gap: 8px; margin-top: 14px; }
+.private li { padding-left: 1.3em; position: relative; font-size: 15px; color: #f3e6ea; }
+.private li::before { content: ""; position: absolute; left: 0; top: .72em; width: .6em; height: .6em; border-radius: 50%; background: var(--near); }
+.private a { color: #fff; }
+
+/* 料金 */
+table { width: 100%; max-width: 640px; border-collapse: collapse; font-size: 15px; }
+th, td { border-bottom: 1px solid var(--line); padding: 12px 6px; text-align: left; vertical-align: top; }
+th { font-weight: 700; width: 9.5em; }
+
+/* 紹介してくださる方へ */
+.creators ul { margin: 0 0 14px 1.2em; max-width: 36em; }
+.creators li { margin-bottom: 6px; }
+
+.last { text-align: center; padding: 56px 0; border-top: 1px solid var(--line); }
+.last h2 { font-family: var(--display); font-weight: 800; font-size: clamp(24px, 6.4vw, 34px); line-height: 1.5; }
+.last .stores { justify-content: center; }
+
+footer { border-top: 1px solid var(--line); padding: 26px 0 44px; font-size: 13.5px; color: var(--soft); }
+footer p { margin-bottom: 6px; }
+footer a { color: var(--soft); }
+
+@media (min-width: 820px) {
+  .hero { grid-template-columns: 1.15fr .85fr; align-items: center; gap: 48px; padding: 44px 0 80px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .reading { grid-template-columns: 270px 1fr; gap: 48px; }
+  .private { padding: 44px 48px; }
+  .block { padding: 68px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone img { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <a class="brand" href="./home.html"><img src="./img/icon.png" alt="" width="36" height="36">ミラメイク</a>
+  <nav>
+    <a href="#price">料金</a>
+    <a href="./index.html">サポート</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <h1><span>なりたい顔と、今日の顔。</span><span>どこが違うかが、</span><span>色で出る。</span></h1>
+    <p class="sub">なりたい顔の写真を1枚えらんで、今日の顔を撮るだけです。近さが0〜100%で出て、顔の写真の上に色が付きます。<i class="dot far"></i>ピンクはなりたい顔と大きく違うところ、<i class="dot near"></i>青緑はすでに近いところです。撮った写真は端末の外へ出ません。</p>
+    <div class="stores">
+      <a class="store" data-store="ios" href="https://apps.apple.com/app/apple-store/id6795734759?pt=129223245&amp;ct=home&amp;mt=8"><small>iPhone の方</small><b>App Store で入れる(無料)</b></a>
+      <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.miramake.myapp&amp;referrer=utm_source%3Dhome%26utm_medium%3Dsite"><small>Android の方</small><b>Google Play で入れる(無料)</b></a>
+    </div>
+    <p class="stores-note">アカウント登録は要りません。無料のまま使い続けられます。</p>
+  </div>
+
+  <div class="demo">
+    <div class="phone" id="phone">
+      <img class="on" src="./img/home_target.jpg" alt="なりたい顔の写真を1枚えらぶ画面" width="660" height="1434">
+      <img src="./img/home_score.jpg" alt="なりたい顔との近さが61%と出て、大きく違うところが3つ並ぶ画面" width="660" height="1434">
+      <img src="./img/home_map.jpg" alt="顔の上に、大きく違うところがピンク、すでに近いところが青緑で重なった画面" width="660" height="1434">
+    </div>
+    <div class="beats" role="tablist" aria-label="アプリの画面を切り替える">
+      <button role="tab" aria-selected="true" data-i="0">えらぶ<i>なりたい顔を1枚</i></button>
+      <button role="tab" aria-selected="false" data-i="1">撮る<i>近さが%で出る</i></button>
+      <button role="tab" aria-selected="false" data-i="2">見る<i>違いが色で出る</i></button>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <h2>使い方は4つの手順です</h2>
+  <ol class="steps">
+    <li><b>なりたい顔の写真を1枚えらぶ</b><span>保存してある憧れの写真でも、調子のよかった日の自分の写真でもかまいません。</span></li>
+    <li><b>今日の顔を撮る</b><span>なりたい顔との近さが0〜100%で出ます。ここまでが1回の診断です。</span></li>
+    <li><b>どこが違うかを見る</b><span>顔の上の色と、眉・目・鼻・口・輪郭ごとのカードで確かめます。</span></li>
+    <li><b>AIに直し方を聞く</b><span>違いが大きい3か所について、今日のメイクでできる直し方が、その場で画面に出ます。</span></li>
+  </ol>
+</section>
+
+<section class="block">
+  <div class="reading">
+    <figure><img src="./img/home_compare.jpg" alt="なりたい顔と今日の顔を重ね、つまみを動かして見比べる画面" width="660" height="1434" loading="lazy"></figure>
+    <div>
+      <h2>色の読み方は2つだけです</h2>
+      <ul class="legend">
+        <li class="far"><b>ピンク: なりたい顔と大きく違うところ</b><span>今日のメイクで先に手を入れる場所です。</span></li>
+        <li class="near"><b>青緑: なりたい顔にすでに近いところ</b><span>いまのままでよい場所です。</span></li>
+      </ul>
+      <p>なりたい顔と今日の顔を重ねて、つまみを左右に動かしながら見比べることもできます。同じ画面で、メイクの前と後の写真を並べて、どこが変わったかを自分の目で確かめられます。</p>
+      <p class="small">色と数字は、見た目の印象の目安です。写真の明るさや角度で変わります。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="private">
+    <h2>撮った写真は、端末の外へ出ません</h2>
+    <p>顔の分析は、お使いの iPhone や Android 端末の中だけで終わります。すっぴんの写真も、なりたい顔の写真も、こちらのサーバーには届きません。</p>
+    <ul>
+      <li>アカウント登録は要りません</li>
+      <li>「AIに聞く」を押したときに送るのは、測った数値と、アプリが付けた顔立ちを表す3つのことばだけです。写真は送りません</li>
+      <li>アプリを消すと、写真も記録もすべて消えます</li>
+    </ul>
+    <p style="margin-top:16px"><a href="./privacy.html">プライバシーポリシーを読む</a></p>
+  </div>
+</section>
+
+<section class="block" id="price">
+  <h2>無料で使えて、回数を増やしたい人には Plus があります</h2>
+  <table>
+    <tr><th>診断</th><td>使い始めの7日間は何回でも無料。8日目からは1日2回まで無料</td></tr>
+    <tr><th>AIの直し方</th><td>週に1回まで無料。同じ週に新しくもう1回聞くなら1回 120円。一度読んだ内容は、あとから無料で読み返せます</td></tr>
+    <tr><th>ミラメイク Plus</th><td>月 980円 または 年 3,800円。診断とAIの直し方が何回でも使え、なりたい顔を5枚まで登録でき(無料は1枚)、撮った日の顔と点数の記録が期限なしで残ります</td></tr>
+  </table>
+  <p class="small" style="margin-top:14px">金額は日本の App Store の価格です。無料の場合、撮った日の顔と点数の記録は7日間残ります。Plus は自動で更新され、ストアの設定からいつでもやめられます。購入の前に、ストアの確認画面で金額が出ます。</p>
+</section>
+
+<section class="block creators">
+  <h2>動画や記事で紹介してくださる方へ</h2>
+  <ul>
+    <li>アプリの名前、アイコン、画面の録画とスクリーンショットは、連絡なしでお使いいただけます。</li>
+    <li>ミラメイクからお願いした投稿には、「PR」の表記をお願いしています。無料コードだけをお渡しした場合も同じです。</li>
+    <li>感想の言い回しはお任せしています。使いにくかった点も、そのまま話してください。</li>
+    <li>ストアのレビューを書くお願いはしていません。</li>
+  </ul>
+  <p>ご相談は <a href="mailto:m.ryota1222@gmail.com">m.ryota1222@gmail.com</a> までお送りください。</p>
+</section>
+
+<section class="last">
+  <h2>今日の顔を、1枚撮ってみる</h2>
+  <div class="stores">
+    <a class="store" data-store="ios" href="https://apps.apple.com/app/apple-store/id6795734759?pt=129223245&amp;ct=home&amp;mt=8"><small>iPhone の方</small><b>App Store で入れる(無料)</b></a>
+    <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.miramake.myapp&amp;referrer=utm_source%3Dhome%26utm_medium%3Dsite"><small>Android の方</small><b>Google Play で入れる(無料)</b></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><a href="./index.html">サポート・よくある質問</a> / <a href="./terms.html">利用規約</a> / <a href="./privacy.html">プライバシーポリシー</a></p>
+  <p>運営者: Ryota Masuda</p>
+  <p>このページが開かれた回数と、ストアへ進んだ回数だけを数えています。個人を特定する情報は集めていません。</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  // 入口ごとの名前を受け取り、両ストアのリンクへ写す。
+  // ?c= は投稿者ごとの名前(英小文字・数字・_ を20字まで)。一覧で縛らないのは、
+  // 投稿者を足すたびにページを直さずに済ませるため。?s= は前からある出し先の名前。
+  var p = new URLSearchParams(location.search);
+  var c = p.get("c"), s = p.get("s");
+  var allowed = ["ig_ad", "ig_bio", "ig_story", "yt_desc", "tt_ad", "tt_bio", "x_bio"];
+  var tag = "home";
+  if (c && /^[a-z0-9_]{1,20}$/.test(c)) tag = "cr_" + c;
+  else if (s && allowed.indexOf(s) >= 0) tag = s;
+
+  var ua = navigator.userAgent || "";
+  var device = /iPhone|iPad|iPod/.test(ua) ? "ios" : /Android/.test(ua) ? "android" : "other";
+  var stores = Array.prototype.slice.call(document.querySelectorAll("a.store"));
+
+  stores.forEach(function (a) {
+    if (a.dataset.store === "ios") {
+      a.href = a.href.replace("ct=home", "ct=" + tag);
+    } else {
+      var medium = tag.indexOf("cr_") === 0 ? "creator" : "site";
+      a.href = "https://play.google.com/store/apps/details?id=com.miramake.myapp&referrer=" +
+        encodeURIComponent("utm_source=" + tag + "&utm_medium=" + medium);
+    }
+    // 手元の端末で使えないほうのストアは隠す
+    if (device !== "other" && a.dataset.store !== device) a.hidden = true;
+  });
+
+  // 冒頭の実演。開いたときに1回だけ3枚を順に送り、あとは押した面で止める
+  var shots = document.querySelectorAll("#phone img");
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".beats button"));
+  var timers = [];
+  function show(i) {
+    shots.forEach(function (img, k) { img.classList.toggle("on", k === i); });
+    tabs.forEach(function (b, k) { b.setAttribute("aria-selected", k === i ? "true" : "false"); });
+  }
+  tabs.forEach(function (b) {
+    b.addEventListener("click", function () {
+      timers.forEach(clearTimeout);
+      show(Number(b.dataset.i));
+    });
+  });
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    show(2);
+  } else {
+    timers.push(setTimeout(function () { show(1); }, 1600));
+    timers.push(setTimeout(function () { show(2); }, 3400));
+  }
+
+  // 押すとページごとストアへ移るので、送り切る sendBeacon を使う。中身を JSON にすると
+  // CORS の事前確認が要る形になり sendBeacon は送るのをやめるため、フォーム形式で送る
+  var endpoint = "https://fccukluxrkbnrvmmrntk.supabase.co/rest/v1/site_events" +
+    "?apikey=sb_publishable_9fyqIqRutF8erQk8Lr-5rQ_AJf4kSeB";
+  function count(kind) {
+    if (!navigator.sendBeacon) return;
+    var body = new URLSearchParams({
+      kind: kind,
+      page: "home",
+      source: tag,
+      referrer: (document.referrer || "").slice(0, 200),
+      lang: (navigator.language || "").slice(0, 20),
+      platform: device
+    }).toString();
+    try {
+      navigator.sendBeacon(endpoint, new Blob([body], { type: "application/x-www-form-urlencoded" }));
+    } catch (e) {
+      // 数えられなくても、ページの動きは止めない
+    }
+  }
+  // 手元でファイルを直接開いたときは数えない
+  if (location.protocol === "https:") {
+    count("view");
+    stores.forEach(function (a) { a.addEventListener("click", function () { count("tap"); }); });
+  }
+})();
+</script>
+</body>
+</html>
